@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CYK</title>
+        <meta charset="utf-8" />
+        <script src="cyk.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <main>
+            <h1>CYK</h1>
+            <form>
+              <label for="productions_input">Produktionen:<br></label>
+              <textarea id="productions_input" rows="8" cols="50">
+X → AB ∣ CA ∣ BC
+A → AB ∣ CA ∣ a
+B → BC ∣ BB ∣ b
+C → CA ∣ c
+              </textarea>
+              <br>
+              <label for="word_input">Wort:<br></label>
+              <input type="text" id="word_input" value="abbca">
+              <br>
+              <button type="button" onclick="render_cyk()">Calculate</button>
+            </form>
+            <pre id="output">
+            </pre>
+        </main>
+        <footer>
+            <p>Made by Linus Kämmerer in 2021. Can be found on <a href="https://github.com/linus-k519/cyk">GitHub</a>.</p>
+        </footer>
+    </body>
+</html>
+
+
+<script src="index.js"></script>
