@@ -58,8 +58,11 @@ class CYK {
 
     toString() {
         this.calc(0, this.word.length-1)
+        const max_size = Math.max.apply(Math, this.table.map(line => Math.max.apply(Math, line.map(item => (item || new Set()).size))))
+        let padding = max_size + (max_size - 1) + 2
+        padding = padding > 0 ? padding : 0
+        console.log(padding);
 
-        const PADDING = 7
         let output = ''
         for (let line of this.table) {
             for (let item_set of line) {
@@ -72,7 +75,7 @@ class CYK {
                 } else {
                     item_str = Array.from(item_set).join()
                 }
-                output += item_str.padEnd(PADDING)
+                output += item_str.padEnd(padding)
             }
             output += '\n'
         }
