@@ -1,13 +1,13 @@
 function parse_input() {
-    let productions_input = document.getElementById('productions_input').innerHTML
+    let productions_input = document.getElementById('productions_input').value
     const word_input = document.getElementById('word_input').value.trim()
 
     // Convert newlines to comma and remove spaces and dots
     productions_input = productions_input.trim()
-    productions_input = productions_input.replace(/\n/g, ',')
     productions_input = productions_input.replace(/ /g, '')
+    productions_input = productions_input.replace(/\n/g, ',')
+    productions_input = productions_input.replace(/,+/g, ',')
     productions_input = productions_input.replace(/\./g, '')
-
 
     // Replace html/latex arrows through simple - and >
     productions_input = productions_input.replace(/→/g, '->')

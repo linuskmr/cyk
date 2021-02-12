@@ -59,25 +59,23 @@ class CYK {
     toString() {
         this.calc(0, this.word.length-1)
         const max_size = Math.max.apply(Math, this.table.map(line => Math.max.apply(Math, line.map(item => (item || new Set()).size))))
-        let padding = max_size + (max_size - 1) + 2
-        padding = padding > 0 ? padding : 0
-        console.log(padding);
+        const padding = (max_size + (max_size - 1)) + 2
 
-        let output = ''
+        let output = ""
         for (let line of this.table) {
             for (let item_set of line) {
-                let item_str = ''
+                let item_str = ""
                 if (!item_set) {
                     // This field is not looked at
-                    item_str = '//'
                 } else if (item_set.size == 0) {
-                    item_str = '∅'
+                    item_str = "-"
                 } else {
                     item_str = Array.from(item_set).join()
                 }
                 output += item_str.padEnd(padding)
+                console.log(item_str.padEnd(padding).length)
             }
-            output += '\n'
+            output += "\n"
         }
         return output
     }

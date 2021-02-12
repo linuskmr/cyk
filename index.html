@@ -13,15 +13,15 @@
             <h1>CYK</h1>
             <form>
               <label for="productions_input">Produktionen:<br></label>
-              <textarea id="productions_input" rows="8" cols="50">
-X → AB ∣ CA ∣ BC
-A → AB ∣ CA ∣ a
-B → BC ∣ BB ∣ b
-C → CA ∣ c
+              <textarea id="productions_input" rows="8" cols="40">
+S → AB ∣ CA ,
+A → BA ∣ b ,
+B → AC ∣ CB ,
+C → AB ∣ a
               </textarea>
               <br>
               <label for="word_input">Wort:<br></label>
-              <input type="text" id="word_input" value="abbca">
+              <input type="text" id="word_input" value="baabab">
               <br>
               <button type="button" onclick="render_cyk()">Calculate</button>
             </form>
