@@ -61,11 +61,11 @@ class CYK {
 
         let output = "<table><tr><th></th>"
         for (let i in this.table[0]) {
-            output += `<th>${i}</th>`
+            output += `<th>${Number(i)+1}</th>`
         }
         output += "</tr>"
         for (let line_index in this.table) {
-            output += `<tr><td>${line_index}</td>`
+            output += `<tr><td>${Number(line_index)+1}</td>`
             const line = this.table[line_index]
             for (let item_set of line) {
                 let item_str = ""
