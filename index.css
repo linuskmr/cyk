@@ -2,8 +2,18 @@ html {
     font-family: sans-serif;
 }
 
-pre {
-    font-family: "Fira Code", "Courier New", monospace;
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid;
+    padding: 10px;
+    text-align: center;
+}
+
+td:first-child {
+    font-weight: 700;
 }
 
 footer {

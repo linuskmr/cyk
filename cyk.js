@@ -58,16 +58,14 @@ class CYK {
 
     toString() {
         this.calc(0, this.word.length-1)
-        const max_size = Math.max.apply(Math, this.table.map(line => Math.max.apply(Math, line.map(item => (item || new Set()).size))))
-        const padding = (max_size + (max_size - 1)) + 2
 
-        let output = "  "
+        let output = "<table><tr><th></th>"
         for (let i in this.table[0]) {
-            output += i.toString().padEnd(padding)
+            output += `<th>${i}</th>`
         }
-        output += "\n"
+        output += "</tr>"
         for (let line_index in this.table) {
-            output += line_index + " "
+            output += `<tr><td>${line_index}</td>`
             const line = this.table[line_index]
             for (let item_set of line) {
                 let item_str = ""
@@ -78,11 +76,11 @@ class CYK {
                 } else {
                     item_str = Array.from(item_set).join()
                 }
-                output += item_str.padEnd(padding)
-                console.log(item_str.padEnd(padding).length)
+                output += `<td>${item_str}</td>`
             }
-            output += "\n"
+            output += "</tr>"
         }
+        output += "</table>"
         return output
     }
 }
