@@ -61,8 +61,14 @@ class CYK {
         const max_size = Math.max.apply(Math, this.table.map(line => Math.max.apply(Math, line.map(item => (item || new Set()).size))))
         const padding = (max_size + (max_size - 1)) + 2
 
-        let output = ""
-        for (let line of this.table) {
+        let output = "  "
+        for (let i in this.table[0]) {
+            output += i.toString().padEnd(padding)
+        }
+        output += "\n"
+        for (let line_index in this.table) {
+            output += line_index + " "
+            const line = this.table[line_index]
             for (let item_set of line) {
                 let item_str = ""
                 if (!item_set) {
